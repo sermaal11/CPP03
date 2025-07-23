@@ -1,13 +1,14 @@
-NAME = Aaaaaa..._OPEN
+NAME = Serena,_my_love
 CC = g++
 CFLAGS = -g3 -Wall -Wextra -Werror -std=c++98
 
-SRC =	    src/main.cpp \
-    src/ClapTrap.cpp \
+SRC =	src/main.cpp \
+    	src/ClapTrap.cpp \
+		src/ScavTrap.cpp \
 
 
 OBJS = $(notdir $(SRC:.cpp=.o))
-OBJDIR = Aaaaaa..._OPEN_objects
+OBJDIR = Serena,_my_love_objects
 
 all: $(OBJDIR) $(NAME)
 
