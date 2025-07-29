@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 19:59:45 by sergio            #+#    #+#             */
-/*   Updated: 2025/07/23 20:03:57 by sergio           ###   ########.fr       */
+/*   Updated: 2025/07/29 09:23:52 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ FragTrap::~FragTrap()
 
 void FragTrap::highFivesGuys()
 {
-	std::cout << "FragTrap " << _name << " at [" << this << "] requests a high five! ✋"
+	std::cout << "FragTrap " << _name << " at [" << this << "] requests a high five!"
 			  << std::endl;
 }
