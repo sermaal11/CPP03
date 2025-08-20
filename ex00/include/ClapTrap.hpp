@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:43:15 by sergio            #+#    #+#             */
-/*   Updated: 2025/07/23 18:23:06 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/20 15:10:09 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,34 @@
 
 # include <iostream>
 
-class ClapTrap
+class Claptrap
 {
 	private:
-		std::string		_name;
-		unsigned int	_hitPoints;
-		unsigned int	_energyPoints;
-		unsigned int	_attackDamage;
+		std::string _name;
+		int _hitPoints;
+		int _energyPoints;
+		int _attackDamage;
+	
 	public:
-		ClapTrap();									//Constructor x defecto
-		ClapTrap(const std::string& name);			//Constructor x parametros
-		ClapTrap(const ClapTrap& copy);				//Constructor x copia
-		ClapTrap& operator=(const ClapTrap& other);	//Operador de asigacion
-		~ClapTrap();								//Destructor x defecto
+		// OCF
+		Claptrap();									// Constructor x defecto
+		Claptrap(const Claptrap& other);			// Constructor x copia
+		Claptrap& operator=(const Claptrap& other);	// Operador de asigancion
+		~Claptrap();								// Destructor x defecto
 
- 		void attack(const std::string& target);
- 		void takeDamage(unsigned int amount);
- 		void beRepaired(unsigned int amount);
+		// Constructor por parametros
+		Claptrap(std::string name, int hitPoints, int energyPoints, int attackDamage);
+		
+		// Getters
+		std::string getName() const;
+		int getHitPoints() const;
+		int getEnergyPoints() const;
+		int getAttackDamage() const;
+
+		// Metodos
+		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
 };
 
 #endif // CLAPTRAP_HPP
