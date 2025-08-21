@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:43:21 by sergio            #+#    #+#             */
-/*   Updated: 2025/08/21 11:32:14 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/21 11:36:22 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@ int main(void)
 				<< " hit points, " << terminator.getEnergyPoints() << " energy points and "
 				<< terminator.getAttackDamage() << " attack damage." << std::endl;
 	terminator.attack("T-1000");
+	std::cout << terminator.getName() << " has " << terminator.getHitPoints()
+				<< " hit points, " << terminator.getEnergyPoints() << " energy points and "
+				<< terminator.getAttackDamage() << " attack damage." << std::endl;
+	terminator.takeDamage(3);
 	std::cout << terminator.getName() << " has " << terminator.getHitPoints()
 				<< " hit points, " << terminator.getEnergyPoints() << " energy points and "
 				<< terminator.getAttackDamage() << " attack damage." << std::endl;
