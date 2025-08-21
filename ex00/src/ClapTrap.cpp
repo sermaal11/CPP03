@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:43:28 by sergio            #+#    #+#             */
-/*   Updated: 2025/08/21 12:12:20 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/21 13:51:14 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Orthodox Canonichl Form
 
 ClapTrap::ClapTrap() 
-	:	_name("Default ClapTrap"),
+	:	_name("Generic ClapTrap"),
 		_hitPoints(10),
 		_energyPoints(10),
 		_attackDamage(0)
@@ -34,8 +34,6 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
-	std::cout << CYAN << "Copy assignment operator called for " << other._name << RESET << std::endl;
-	
 	if (this != &other)
 	{
 		_name = other._name;
@@ -43,6 +41,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 		_energyPoints = other._energyPoints;
 		_attackDamage = other._attackDamage;
 	}
+	std::cout << CYAN << "Copy assignment operator called for " << other._name << RESET << std::endl;
 	return *this;
 }
 
@@ -85,6 +84,7 @@ int ClapTrap::getAttackDamage() const
 }
 
 // Metodos
+
 void ClapTrap::attack(const std::string& target)
 {
 	if (_hitPoints <= 0)

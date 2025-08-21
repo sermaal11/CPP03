@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:43:21 by sergio            #+#    #+#             */
-/*   Updated: 2025/08/21 12:12:39 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/21 13:44:09 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,16 @@
 int main(void)
 {
 	ClapTrap generic;
-
 	std::cout << generic.getName() << " has " << generic.getHitPoints()
 				<< " hit points, " << generic.getEnergyPoints() << " energy points and "
 				<< generic.getAttackDamage() << " attack damage." << std::endl;
 
 	ClapTrap copy(generic);
-	
 	std::cout << copy.getName() << " has " << copy.getHitPoints()
 				<< " hit points, " << copy.getEnergyPoints() << " energy points and "
 				<< copy.getAttackDamage() << " attack damage." << std::endl;
 	
 	ClapTrap assigment;
-	
 	assigment = generic;
 	std::cout << assigment.getName() << " has " << assigment.getHitPoints()
 				<< " hit points, " << assigment.getEnergyPoints() << " energy points and "
