@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 18:32:25 by sergio            #+#    #+#             */
-/*   Updated: 2025/08/21 14:17:04 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/21 14:46:39 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ ScavTrap::ScavTrap()
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-	*this = other;
 	std::cout << CYAN << "[SCAVTRAP] Copy constructor called" << RESET << std::endl;
 }
 
@@ -43,5 +42,43 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 ScavTrap::~ScavTrap()
 {
 	std::cout << RED << "[SCAVTRAP] Default destructor called" << RESET << std::endl;
+}
+
+// Constructor x parametro
+
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name, 100, 50, 20)
+{
+	std::cout << CYAN << "[SCAVTRAP] Param constructor called" << RESET << std::endl;
+}
+
+// Metodos
+void ScavTrap::attack(const std::string& target)
+{
+	if (_hitPoints <= 0)
+	{
+		std::cout << RED << _name 
+				<< " cannot attack because is dead!"
+				<< RESET << std::endl;
+		return;
+	}
+	if (_energyPoints <= 0)
+	{
+		std::cout << RED << _name 
+				<< " cannot attack because has no energy points!"
+				<< RESET << std::endl;
+		return;
+	}
+	std::cout << GREEN << _name << " is a ScavTrap and "
+			<< " attacks to " << target
+			<< " causing " << _attackDamage
+			<< " points!" << RESET << std::endl;
+	_energyPoints--;
+}
+
+void ScavTrap::guardGate()
+{
+	std::cout << MAGENTA << _name
+              << " HAS ENTERED GATE KEEPER MODE!" 
+              << RESET << std::endl;
 }
 
