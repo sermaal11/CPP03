@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:43:28 by sergio            #+#    #+#             */
-/*   Updated: 2025/08/21 11:50:52 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/21 12:01:11 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void Claptrap::takeDamage(unsigned int amount)
 			<< " receives " << amount
 			<< " points of damage! " 
 			<< RESET << std::endl;
-	if (amount > _hitPoints)
+	if (amount > static_cast<unsigned int>(_hitPoints))
 		_hitPoints = 0;
 	else
 		_hitPoints = _hitPoints - amount;
