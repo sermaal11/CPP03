@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:43:15 by sergio            #+#    #+#             */
-/*   Updated: 2025/08/20 15:10:09 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/21 12:11:35 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 # include <iostream>
 
-class Claptrap
+class ClapTrap
 {
 	private:
 		std::string _name;
@@ -32,13 +32,13 @@ class Claptrap
 	
 	public:
 		// OCF
-		Claptrap();									// Constructor x defecto
-		Claptrap(const Claptrap& other);			// Constructor x copia
-		Claptrap& operator=(const Claptrap& other);	// Operador de asigancion
-		~Claptrap();								// Destructor x defecto
+		ClapTrap();									// Constructor x defecto
+		ClapTrap(const ClapTrap& other);			// Constructor x copia
+		ClapTrap& operator=(const ClapTrap& other);	// Operador de asigancion
+		~ClapTrap();								// Destructor x defecto
 
 		// Constructor por parametros
-		Claptrap(std::string name, int hitPoints, int energyPoints, int attackDamage);
+		ClapTrap(std::string name, int hitPoints, int energyPoints, int attackDamage);
 		
 		// Getters
 		std::string getName() const;
