@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 18:32:25 by sergio            #+#    #+#             */
-/*   Updated: 2025/08/21 14:46:39 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/21 17:34:54 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << RED << "[SCAVTRAP] Default destructor called" << RESET << std::endl;
+	std::cout << YELLOW << "[SCAVTRAP] Default destructor called" << RESET << std::endl;
 }
 
 // Constructor x parametro
