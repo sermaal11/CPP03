@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:43:28 by sergio            #+#    #+#             */
-/*   Updated: 2025/08/21 11:37:03 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/21 11:50:52 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,14 +90,14 @@ void Claptrap::attack(const std::string& target)
 	if (_hitPoints <= 0)
 	{
 		std::cout << RED << _name 
-				<< " can not attack because is dead!"
+				<< " cannot attack because is dead!"
 				<< RESET << std::endl;
 		return;
 	}
 	if (_energyPoints <= 0)
 	{
 		std::cout << RED << _name 
-				<< " can not attack because has not enegy points!"
+				<< " cannot attack because has no energy points!"
 				<< RESET << std::endl;
 		return;
 	}
@@ -114,14 +114,7 @@ void Claptrap::takeDamage(unsigned int amount)
 	if (_hitPoints <= 0)
 	{
 		std::cout << RED << _name 
-				<< " can not take damage because is dead!"
-				<< RESET << std::endl;
-		return;
-	}
-	if (_energyPoints <= 0)
-	{
-		std::cout << RED << _name 
-				<< " can not take damage because has not enegy points!"
+				<< " cannot take damage because is dead!"
 				<< RESET << std::endl;
 		return;
 	}
@@ -129,7 +122,34 @@ void Claptrap::takeDamage(unsigned int amount)
 			<< " receives " << amount
 			<< " points of damage! " 
 			<< RESET << std::endl;
-	_hitPoints = _hitPoints - amount;
+	if (amount > _hitPoints)
+		_hitPoints = 0;
+	else
+		_hitPoints = _hitPoints - amount;
+	return;
+}
+
+void Claptrap::beRepaired(unsigned int amount)
+{
+	if (_hitPoints <= 0)
+	{
+		std::cout << RED << _name 
+				<< " cannot be repaired because is dead!"
+				<< RESET << std::endl;
+		return;
+	}
+	if (_energyPoints <= 0)
+	{
+		std::cout << RED << _name 
+				<< " cannot be repaired because has no energy points!"
+				<< RESET << std::endl;
+		return;
+	}
+	std::cout << GREEN << _name
+			<< " repairs himself " << amount
+			<< " hit points! " 
+			<< RESET << std::endl;
+	_hitPoints = _hitPoints + amount;
 	_energyPoints--;
 	return;
 }
