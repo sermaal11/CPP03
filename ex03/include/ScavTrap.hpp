@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 18:32:55 by sergio            #+#    #+#             */
-/*   Updated: 2025/08/22 09:23:13 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/22 09:52:10 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SCAVTRAP_HPP
 
 #include "../include/ClapTrap.hpp"
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 	public:
 		// OCF

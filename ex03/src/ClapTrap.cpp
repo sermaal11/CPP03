@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:43:28 by sergio            #+#    #+#             */
-/*   Updated: 2025/08/22 09:21:35 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/22 10:10:13 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ ClapTrap::ClapTrap(std::string name, int hitPoints, int energyPoints, int attack
 		_energyPoints(energyPoints),
 		_attackDamage(attackDamage)
 {
-	std::cout << CYAN << "[CLAPTRAP] Param constructor called" << RESET << std::endl;
+	std::cout << CYAN << "[CLAPTRAP] Four param constructor called" << RESET << std::endl;
 }
 
 // Getters

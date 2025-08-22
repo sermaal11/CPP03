@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:43:15 by sergio            #+#    #+#             */
-/*   Updated: 2025/08/22 09:22:10 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/22 10:10:06 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class ClapTrap
 		ClapTrap();									// Constructor x defecto
 		ClapTrap(const ClapTrap& other);			// Constructor x copia
 		ClapTrap& operator=(const ClapTrap& other);	// Operador de asigancion
-		~ClapTrap();								// Destructor x defecto
+		virtual ~ClapTrap();						// Destructor virtual
 		
 		// Constructor por parametros
 		ClapTrap(std::string name, int hitPoints, int energyPoints, int attackDamage);
@@ -47,7 +47,7 @@ class ClapTrap
 		int getAttackDamage() const;
 
 		// Metodos
-		void attack(const std::string& target);
+		virtual void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };
