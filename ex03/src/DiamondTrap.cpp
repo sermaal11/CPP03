@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 20:11:37 by sergio            #+#    #+#             */
-/*   Updated: 2025/08/22 10:32:02 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/22 10:33:30 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ DiamondTrap::DiamondTrap(const std::string& name)
 	: ClapTrap(name + "_clap_name", 100, 50, 30), ScavTrap(name), FragTrap(name), _name(name)
 {
 	ClapTrap::_name = _name + "_clap_name";
-	_hitPoints = FragTrap::_hitPoints;		// 100 (de FragTrap)
-	_energyPoints = ScavTrap::_energyPoints;	// 50 (de ScavTrap)
-	_attackDamage = FragTrap::_attackDamage;	// 30 (de FragTrap)
+	_hitPoints = FragTrap::_hitPoints;
+	_energyPoints = ScavTrap::_energyPoints;
+	_attackDamage = FragTrap::_attackDamage;
 	std::cout << CYAN << "[DIAMONDTRAP] Parametric constructor called for " << _name << RESET << std::endl;
 }
 
