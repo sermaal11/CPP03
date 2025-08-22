@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 18:32:55 by sergio            #+#    #+#             */
-/*   Updated: 2025/07/23 20:17:43 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/22 09:23:13 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 # define SCAVTRAP_HPP
 
 #include "../include/ClapTrap.hpp"
-
-class ScavTrap : public virtual ClapTrap
+class ScavTrap : public ClapTrap
 {
 	public:
-		ScavTrap();									//Constructor por defecto
-		ScavTrap(const std::string& name);			//Constructor x parametros
-		ScavTrap(const ScavTrap& other);			//Constructor x copia
-		ScavTrap& operator=(const ScavTrap& other);	//Operador de asignacion
-		~ScavTrap();								//Destructor x defecto
+		// OCF
+		ScavTrap();									// Constructor x defecto
+		ScavTrap(const ScavTrap& other);			// Constructor x copia
+		ScavTrap& operator=(const ScavTrap& other);	// Operador de asigancion
+		~ScavTrap();								// Destructor x defecto
 
-		void guardGate();
+		// Constructor x parametro
+		ScavTrap(const std::string& name);
 
+		// Metodos
 		void attack(const std::string& target);
+		void guardGate();
 };
 
 #endif

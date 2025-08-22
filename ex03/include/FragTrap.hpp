@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fragtrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 19:58:07 by sergio            #+#    #+#             */
-/*   Updated: 2025/07/23 20:17:20 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/22 09:24:18 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,20 @@
 
 #include "../include/ScavTrap.hpp"
 
-class FragTrap : public virtual ClapTrap
+class FragTrap : public ClapTrap
 {
-public:
-	FragTrap();                               // constructor por defecto
-	FragTrap(const std::string& name);        // constructor con nombre
-	FragTrap(const FragTrap& copy);           // constructor de copia
-	FragTrap& operator=(const FragTrap& other); // operador de asignación
-	~FragTrap();                              // destructor
+	public:
+		// OCF
+		FragTrap();									// Constructor x defecto
+		FragTrap(const FragTrap& other);			// Constructor x copia
+		FragTrap& operator=(const FragTrap& other);	// Operador de asigancion
+		~FragTrap();								// Destructor x defecto
 
-	void highFivesGuys();                     // método exclusivo
+		// Constructor x parametro
+		FragTrap(const std::string& name);
+		
+		//Metodos
+		void highFivesGuys(void);
 };
 
 #endif
