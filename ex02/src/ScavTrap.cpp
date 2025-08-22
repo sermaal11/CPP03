@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 18:32:25 by sergio            #+#    #+#             */
-/*   Updated: 2025/08/22 08:55:49 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/22 09:14:40 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,19 @@ void ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate()
 {
+	if (_hitPoints <= 0)
+	{
+		std::cout << RED << _name 
+				<< " cannot entered gate keeper mode because is dead."
+				<< RESET << std::endl;
+		return;
+	}
+	else
+	{
 	std::cout << MAGENTA << _name
               << " HAS ENTERED GATE KEEPER MODE!" 
               << RESET << std::endl;
+	}
 }
 
 

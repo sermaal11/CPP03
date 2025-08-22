@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:43:21 by sergio            #+#    #+#             */
-/*   Updated: 2025/08/22 09:06:10 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/22 09:09:54 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,85 @@ int main()
 				<< droide.getAttackDamage() << " attack damage." << std::endl;
 	droide.highFivesGuys();
 
-	
+	// Edge cases
+	// 1) Atacar sin energía (drenamos los 100 EP primero)
+    FragTrap noEnergy("NoEnergy");
+    std::cout << "[Edge] Attack with 0 energy" << std::endl;
+    for (int i = 0; i < 100; ++i) noEnergy.attack("Dummy"); // EP -> 0
+    std::cout << noEnergy.getName() << " has " << noEnergy.getHitPoints()
+              << " hit points, " << noEnergy.getEnergyPoints() << " energy points and "
+              << noEnergy.getAttackDamage() << " attack damage." << std::endl;
+    noEnergy.attack("OutOfJuice");                           // debe negarse
+
+	// 2) Reparar sin energía (drenamos energía y luego intentamos reparar)
+    FragTrap noEnergyRepair("NoEnergyRepair");
+    std::cout << "[Edge] Repair with 0 energy" << std::endl;
+    for (int i = 0; i < 100; ++i) noEnergyRepair.attack("Air"); // EP -> 0
+    std::cout << noEnergyRepair.getName() << " has " << noEnergyRepair.getHitPoints()
+              << " hit points, " << noEnergyRepair.getEnergyPoints() << " energy points and "
+              << noEnergyRepair.getAttackDamage() << " attack damage." << std::endl;
+    noEnergyRepair.beRepaired(3);                               // debe negarse
+
+	// 3) Muerte y acciones posteriores
+    FragTrap doomed("Doomed");
+    std::cout << "[Edge] Fatal damage then actions" << std::endl;
+    doomed.takeDamage(150);           // HP -> 0
+    doomed.attack("Dummy");           // debe negarse (muerto)
+    doomed.beRepaired(10);            // debe negarse (muerto)
+    doomed.highFivesGuys();           // debe negarse o avisar (muerto)
+    std::cout << doomed.getName() << " has " << doomed.getHitPoints()
+              << " hit points, " << doomed.getEnergyPoints() << " energy points and "
+              << doomed.getAttackDamage() << " attack damage." << std::endl;
+
+	// 4) Daño exacto igual a HP (FragTrap empieza con 100)
+    FragTrap boundary("Boundary");
+    std::cout << "[Edge] Exact lethal damage" << std::endl;
+    boundary.takeDamage(100);        // HP -> 0 exacto
+    std::cout << boundary.getName() << " HP: "
+              << boundary.getHitPoints() << std::endl;
+
+	// 5) Agotar energía atacando (y un ataque extra)
+    FragTrap spam("Spammer");
+    std::cout << "[Edge] Drain energy by attacking" << std::endl;
+    for (int i = 0; i < 100; ++i) spam.attack("A"); // EP -> 0
+    spam.attack("B");                               // debe negarse
+
+	// 6) Autoasignación
+    FragTrap self("Selfie");
+    std::cout << "[Edge] Self-assignment" << std::endl;
+    FragTrap& alias = self; // evitar -Wself-assign-overloaded
+    self = alias;
+    std::cout << self.getName() << " HP: " << self.getHitPoints()
+              << " EN: " << self.getEnergyPoints()
+              << " AD: " << self.getAttackDamage() << std::endl;
+
+	// 7) Copia y mutación del original (la copia no cambia)
+    FragTrap original("Original");
+    FragTrap clone(original);
+    std::cout << "[Edge] Copy then mutate original" << std::endl;
+    original.takeDamage(35);
+    std::cout << "Original HP: " << original.getHitPoints()
+              << " | Clone HP: " << clone.getHitPoints() << std::endl;
+
+	// 8) Reparación grande (si no hay tope máximo en tu lógica)
+    FragTrap healer("Healer");
+    std::cout << "[Edge] Huge repair" << std::endl;
+    healer.takeDamage(99);           // HP -> 1
+    healer.beRepaired(1000);         // aumentará mucho si no impones cap
+    std::cout << healer.getName() << " HP after huge repair: "
+              << healer.getHitPoints() << std::endl;
+
+	// 9) Atacar con HP == 0 pero con energía > 0
+    FragTrap ghost("Ghost");
+    std::cout << "[Edge] Attack while dead (HP=0)" << std::endl;
+    ghost.takeDamage(100);           // HP -> 0 (EP sigue en 100)
+    ghost.attack("LivingTarget");    // debe negarse (muerto)
+
+    // 10) highFivesGuys en estados límite
+    FragTrap five("HighFiveDude");
+    std::cout << "[Edge] High fives alive vs dead" << std::endl;
+    five.highFivesGuys();            // debe pedir high five (vivo)
+    five.takeDamage(200);            // lo matamos
+    five.highFivesGuys();            // debe negarse (muerto)
 	return 0;
 }

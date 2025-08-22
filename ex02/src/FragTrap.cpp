@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 19:59:45 by sergio            #+#    #+#             */
-/*   Updated: 2025/08/22 09:05:25 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/22 09:14:42 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,17 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name, 100, 100, 30)
 // Metodos
 void FragTrap::highFivesGuys()
 {
+	if (_hitPoints <= 0)
+	{
+		std::cout << RED << _name 
+				<< " cannot waiting for a highfive because is dead."
+				<< RESET << std::endl;
+		return;
+	}
+	else
+	{
 	std::cout << MAGENTA << _name
               << " IS WAITING FOR A HIGHFIVE!" 
               << RESET << std::endl;
+	}
 }
