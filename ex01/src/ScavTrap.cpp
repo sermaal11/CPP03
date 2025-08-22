@@ -6,13 +6,15 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 18:32:25 by sergio            #+#    #+#             */
-/*   Updated: 2025/08/21 17:34:54 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/22 08:56:01 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+//OCF
+
+ScavTrap::ScavTrap() : ClapTrap()
 {
 	_name = "Generic Scav";
 	_hitPoints = 100;
@@ -81,4 +83,3 @@ void ScavTrap::guardGate()
               << " HAS ENTERED GATE KEEPER MODE!" 
               << RESET << std::endl;
 }
-

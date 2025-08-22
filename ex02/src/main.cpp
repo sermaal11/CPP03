@@ -6,7 +6,7 @@
 /*   By: sergio <sergio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:43:21 by sergio            #+#    #+#             */
-/*   Updated: 2025/07/23 20:02:37 by sergio           ###   ########.fr       */
+/*   Updated: 2025/08/22 09:06:10 by sergio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,53 @@
 
 int main()
 {
-	std::cout << GREEN << "\n=== Construcción de un FragTrap ===" << RESET << std::endl;
-	FragTrap ft("Fragger");
+	FragTrap generic;
+	std::cout << generic.getName() << " has " << generic.getHitPoints()
+				<< " hit points, " << generic.getEnergyPoints() << " energy points and "
+				<< generic.getAttackDamage() << " attack damage." << std::endl;
 
-	std::cout << CYAN << "\n=== Prueba de ataque ===" << RESET << std::endl;
-	ft.attack("enemigo");
+	FragTrap copy(generic);
+	std::cout << copy.getName() << " has " << copy.getHitPoints()
+				<< " hit points, " << copy.getEnergyPoints() << " energy points and "
+				<< copy.getAttackDamage() << " attack damage." << std::endl;
 
-	std::cout << CYAN << "\n=== Prueba de recibir daño ===" << RESET << std::endl;
-	ft.takeDamage(42);
+	FragTrap assigment;
+	assigment = generic;
+	std::cout << assigment.getName() << " has " << assigment.getHitPoints()
+				<< " hit points, " << assigment.getEnergyPoints() << " energy points and "
+				<< assigment.getAttackDamage() << " attack damage." << std::endl;
 
-	std::cout << CYAN << "\n=== Prueba de reparación ===" << RESET << std::endl;
-	ft.beRepaired(25);
+	FragTrap param("C3PO");
+	std::cout << param.getName() << " has " << param.getHitPoints()
+				<< " hit points, " << param.getEnergyPoints() << " energy points and "
+				<< param.getAttackDamage() << " attack damage." << std::endl;
 
-	std::cout << YELLOW << "\n=== Petición de high-five ===" << RESET << std::endl;
-	ft.highFivesGuys();
+	ClapTrap terminator("T-800", 10, 10, 0);
+	std::cout << terminator.getName() << " has " << terminator.getHitPoints()
+				<< " hit points, " << terminator.getEnergyPoints() << " energy points and "
+				<< terminator.getAttackDamage() << " attack damage." << std::endl;
+	FragTrap droide("R2D2");
+	std::cout << droide.getName() << " has " << droide.getHitPoints()
+				<< " hit points, " << droide.getEnergyPoints() << " energy points and "
+				<< droide.getAttackDamage() << " attack damage." << std::endl;
+	terminator.attack("T-1000");
+	std::cout << terminator.getName() << " has " << terminator.getHitPoints()
+				<< " hit points, " << terminator.getEnergyPoints() << " energy points and "
+				<< terminator.getAttackDamage() << " attack damage." << std::endl;
+	droide.attack("Jabba the Hut");
+	std::cout << droide.getName() << " has " << droide.getHitPoints()
+				<< " hit points, " << droide.getEnergyPoints() << " energy points and "
+				<< droide.getAttackDamage() << " attack damage." << std::endl;
+	droide.takeDamage(3);
+	std::cout << droide.getName() << " has " << droide.getHitPoints()
+				<< " hit points, " << droide.getEnergyPoints() << " energy points and "
+				<< droide.getAttackDamage() << " attack damage." << std::endl;
+	droide.beRepaired(5);
+	std::cout << droide.getName() << " has " << droide.getHitPoints()
+				<< " hit points, " << droide.getEnergyPoints() << " energy points and "
+				<< droide.getAttackDamage() << " attack damage." << std::endl;
+	droide.highFivesGuys();
 
-	std::cout << GREEN << "\n=== Fin del programa, destrucción en orden inverso ===" << RESET << std::endl;
-	return 0;
+	
 	return 0;
 }
